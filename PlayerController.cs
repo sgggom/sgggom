@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private bool rightison = false; //是否正在长按向右
 
 
-    private float _Speed = 1;
+    private float _Speed = 2;
 
     private float _leftForce = 0; //向左方向的力的大小
     private float _rightForce = 0; //向右方向的力的大小
@@ -31,7 +31,16 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
+        if (_leftForce>3)
+        {
+            _leftForce = 3;
+        }
 
+        if (_rightForce>3)
+        {
+            _rightForce = 3;
+        }
+        
         _playerRigi.AddForce(new Vector2(-_leftForce, 0)); //对刚体施加向左方向力
         _playerRigi.AddForce(new Vector2(_rightForce, 0)); //对刚体施加向右方向的力
     }

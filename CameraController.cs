@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -26,7 +29,7 @@ public class CameraController : MonoBehaviour
     {
         player.transform.position = player.GetComponent<Transform>().position;
         mainCamera.transform.position = player.transform.position - follow;
-        
+
         // Debug.Log(mainCamera.transform.position);
         // Debug.Log(player.transform.position);
     }
