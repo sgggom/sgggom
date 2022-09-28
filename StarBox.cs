@@ -7,25 +7,27 @@ public class StarBox : MonoBehaviour
     public GameObject star;
     private GameObject child;
 
-    private int time;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    private float time=10;
+    private float coldtime=0;
 
-    // Update is called once per frame
     void Update()
     {
         if (star.gameObject.activeSelf==false)
         {
-            time = Random.Range(5, 10);
-           Invoke("openStar",time);
+            coldtime = coldtime + 1 * Time.deltaTime;
+            if (coldtime > time) 
+            {
+                openStar();
+                coldtime = 0;
+            }
+            // Invoke("openStar",time);
         }
         
     }
 
     public void openStar()
     {
-       star.gameObject.SetActive(true);
+        star.gameObject.SetActive(true);
+        print(1);
     }
 }
